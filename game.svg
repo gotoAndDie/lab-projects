@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" onload="game()">
+
+
+<script>
+<![CDATA[
+function game() {
+	var smal = 0;
+	var bigg = 100;
+	var tries = 0;
+	var targ = Math.ceil(99*Math.random());
+	do {
+		do {
+			var input = prompt("Please guess an integer between " + smal + " and " + bigg + "." + "\n" + "If you want to quit, type \"quit\"." );
+			if (input == "quit") {
+				return;
+			}
+			input = Number(input)
+			console.log(input);
+			console.log(Math.ceil(input));
+			console.log(input != Math.ceil(input));
+			if (input < smal) {
+				window.alert("The number must be greater than " + smal + ".");
+			}
+			if (input > bigg) {
+				window.alert("The number must be smaller than " + bigg + ".");
+			}
+			if (input != Math.ceil(input)) {
+				window.alert("Please input an integer.");
+			}
+		}
+		while (input != Math.ceil(input) || input < smal || input > bigg);
+		tries++
+		if (input < targ){
+			smal = input;
+		} else if (input > targ) {
+			bigg = input;
+		}
+	}
+	while (input != targ);
+	window.alert("Congratulations! You have won! The number is " + targ + "!" + "\n" + "You have taken " + tries + " tries!");
+	
+	
+}
+]]>
+</script>
+
+</svg>
+

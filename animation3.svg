@@ -1,0 +1,18 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+
+<g id="esss" transform="translate(71.28 73.28)">
+
+        <animateTransform
+			additive="sum"
+            attributeName="transform" type="scale"            
+            begin="0s" dur="4s"          
+            values="1 1; 0 0"   
+            fill="freeze"
+        />
+		
+   <ellipse id="svg_7" transform="matrix(0.573158954703408,0.7071067811865475,-0.5731589547034079,0.7071067811865476,218.3712943992075,-89.07979030718491) " ry="40" rx="60" cy="267.449585" cx="-141.399274" stroke-width="0" fill="#FF0000" stroke="#000000"/>
+   <ellipse id="svg_8" transform="matrix(-0.5731589547034079,0.7071067811865476,-0.573158954703408,-0.7071067811865475,528.7905518375223,220.67588386092956) " ry="40" rx="60" cy="603.832724" cx="290.944755" stroke-width="0" fill="#FF0000" stroke="#000000"/>
+  </g>
+</svg>
+
+

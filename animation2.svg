@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+
+<g id="esss">
+
+        <animateTransform
+            attributeName="transform" type="rotate"            
+            begin="0s" dur=".2s"          
+            values="0 73.28 71.28; 360 73.28 71.28"   
+            repeatCount="indefinite"
+        />
+	
+    <ellipse id="svg_7" transform="matrix(0.573158954703408,0.7071067811865475,-0.5731589547034079,0.7071067811865476,218.3712943992075,-89.07979030718491) " ry="40" rx="60" cy="253.92575" cx="-27.070256" stroke-width="0" fill="#FF0000" stroke="#000000"/>
+    <ellipse id="svg_8" transform="matrix(-0.5731589547034079,0.7071067811865476,-0.573158954703408,-0.7071067811865475,528.7905518375223,220.67588386092956) " ry="40" rx="60" cy="489.503706" cx="277.42092" stroke-width="0" fill="#FF0000" stroke="#000000"/>
+   </g>
+</svg>
+
+

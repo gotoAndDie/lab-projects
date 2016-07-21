@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="410">
+
+<!--
+A ghost
+-->
+
+<g id="ghost">
+
+  <path d="M5,305 q0,-300 200,-300 t200,300 l00,100  
+           l-50,-70 l-50,70 l-50,-70 l-50,70 l-50,-70 l-50,70 l-50,-70 l-50,70 l00,-100"
+        style="fill:gray; stroke:black; stroke-width:4"/>
+
+<!-- Left eye -->
+
+  <circle cx="120" cy="200" r="50"
+          style="fill:red; stroke:black; stroke-width:8">
+  </circle>
+
+  <circle cx="120" cy="200" r="20"
+          style="fill:white; stroke-width:0">
+  		<animateTransform
+			additive="sum"
+            attributeName="transform" type="translate"            
+            begin="0s" dur=".47s"          
+            values="20 -20; 20 20; -20 20; -20 -20; 20 -20"
+			repeatCount="indefinite"
+        />
+
+  </circle>
+
+<!-- Right eye -->
+
+  <circle cx="280" cy="200" r="50"
+          style="fill:red; stroke:black; stroke-width:8">
+  </circle>
+
+  <circle cx="280" cy="200" r="20"
+          style="fill:white; stroke-width:0">
+		  <animateTransform
+			additive="sum"
+            attributeName="transform" type="translate"            
+            begin="0s" dur=".53s"          
+            values="20 20; 20 -20; -20 20; -20 -20; 20 20"
+			repeatCount="indefinite"
+        />
+  </circle>
+
+</g>
+
+</svg>
