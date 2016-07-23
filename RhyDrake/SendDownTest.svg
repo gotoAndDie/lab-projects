@@ -56,7 +56,7 @@ function senddown(){
 	elem.setAttributeNS(null,"id","abctest");
 	document.documentElement.appendChild(elem);
 	var abctest = []
-	abctest[2] = [0,0,document.getElementById("abctest")];
+	abctest = [0,0,document.getElementById("abctest")];
 	console.log(abctest[2])
 	abctest[2].setAttribute("transform", "translate(0 0) scale(0.03)");
 	//stroke-dashoffset="0" stroke-miterlimit="10.433" stroke-linejoin="round" stroke-linecap="round" stroke-width="0" fill="#00ffff" stroke="#1e1916"/>
