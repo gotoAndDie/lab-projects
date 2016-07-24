@@ -18,7 +18,7 @@
 <text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Ready</text>
 <text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Ready</text>
 <text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Ready</text>
-<text id="errorretard" x="79997.5" fill="#f0f0f0">aaa</text>
+<text id="errorretard" x="98112.6" fill="#f0f0f0">aaa</text>
 <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 <![CDATA[
@@ -188,17 +188,16 @@ function scoreeval(loc){
 	 * i, q: used in the for loop
 	 * prox: The distance between the hitbar and the closest snowflake on the corresponding line when a button is pressed. Defaults to 999 because it is large.
 	 * ln: The line number. Used to determine which text object to modify. It is nearly the inverse of the operation on line 66; that and this only needs to be executed once each per note, but loc is needed for every snowflake it scans through.
+	 * posysy: where posy.length is temporaily stored to increase performance.
 	 */
-	var i, q, prox = 999, ln = (loc+10)/20-1 
+	var i, q, prox = 999, ln = (loc+10)/20-1, posysy = posy.length
 	
 	//Scans through the list of snowflakes onscreen, and puts the distance between the closest one and the hitbar in prox.
-	for (i=gonecount; i<posy.length; i++){
+	for (i=gonecount; i<posysy; i++){
 		if (posx[i]==loc && prox > Math.abs(85-posy[i])){
 			prox = Math.abs(75-posy[i]);
-			//Removes the snowflake if the keypress was close enough. Scans through the list to find the needed snowflake.
-			for (q=gonecount; q<posy.length; q++){
-			if ((posy[q] == 75-prox || posy[q] == 75+prox) && prox < 15 && posx[q]==loc) {posx[q] = 1990}
-			}	
+			//Removes the snowflake by moving it to somewhere far if the keypress was close enough. 
+			if (prox<15){posx[i]=1990}
 		}
 	}
 	//console.log(ln);
