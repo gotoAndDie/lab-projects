@@ -1,0 +1,2 @@
+REMEMBER
+Remember to start chrome with the --allow-file-access-from-files flag when attempting to playtest this with chrome! Otherwise loading the .csv file won't work, and there'd be nothing to play!
