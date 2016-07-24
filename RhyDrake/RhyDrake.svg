@@ -19,7 +19,7 @@
 <text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Ready</text>
 <text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Ready</text>
 <text id="errorretard" x="79997.5" fill="#f0f0f0">aaa</text>
-<script xlink:href="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 <![CDATA[
 //CSV parser. Turns CSV file into script for the game. Copied from the web and modified.
