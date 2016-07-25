@@ -3,18 +3,35 @@
   <filter id="svg_1_blur" x="-50%" y="-50%" width="200%" height="200%">
    <feGaussianBlur stdDeviation="12"/>
   </filter>
+  <linearGradient id="endshadgrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:0.5" />
+      <stop offset="50%" style="stop-color:rgb(0,0,0);stop-opacity:1" />  
+      <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0.5" />
+   </linearGradient>
 </defs>
 <rect x="-10000" y="-10000" width="20000" height="20000" style="fill:#000000" />
 <rect x="0" y="0" width="100" height="100" style="fill:#263238" />
 <line id="hitbar" y2="85" x2="50" y1="85" x1="50" stroke-width="0.25" stroke="#cfd8dc" fill="none"/>
 <text id="title" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="23" fill="#f0f0f0">RhyDrake by Group 2</text>
-<text id="begintxt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="25" fill="#f0f0f0">- Press Space to start -</text>
+<g id="begintext" fill-opacity="1">
+	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="25" fill="#f0f0f0">- Press Space to start -</text>
+	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="15" x="18" fill="#f0f0f0">Use keys DFJK!</text>
+</g>
 <text id="scoretxt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="50" fill="#f0f0f0">0</text>
 <text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Ready</text>
 <text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Ready</text>
 <text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Ready</text>
 <text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Ready</text>
+<rect id="endshadow" x="0" y="0" width="100" height="100" fill="url(#endshadgrad)" fill-opacity="0" />
 <text id="errorretard" x="98112.6" fill="#f0f0f0">aaa</text>
+<text id="thankyou" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="82.5" x="50" fill="#ef9a9a" fill-opacity="0"> Thank you for playing! Press Enter to play again.</text>
+<text id="misst" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="30" x="50" fill="#ef9a9a"></text>
+<text id="badt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="37.5" x="50" fill="#ffcc80"></text>
+<text id="okt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="45" x="50" fill="#fff59d"></text>
+<text id="goodt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="52.5" x="50" fill="#c5e1a5"></text>
+<text id="greatt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="60" x="50" fill="#80cbc4"></text>
+<text id="perfectt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="67.5" x="50" fill="#ce93d8"></text>
+<text id="finalscore" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="75" x="50" fill="#f0f0f0"></text>
 <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 <![CDATA[
@@ -46,19 +63,28 @@ function processData(allText) {
 }}
 //End of parser.
 //Adding the EventListener for keyboard presses.
-var begintext = document.getElementById("begintxt");
+var begintext = document.getElementById("begintext");
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		//Currently, it detects spacebar to begin the game, and the number keys 1, 2, 3 and 4 as input during the game. 
 		//Nothing prevents you from pressing the number keys before the game starts. Feel free to lower your own score as you please.
 		case 32:
-		if (typeof right[1] != 'undefined' && prog === undefined){rhythmgame();begintext.setAttribute("transform", "scale(0)");exphitbar(0,1,document.getElementById("hitbar"));} //The game shouldn't start before the parser is finished! 
+		if (typeof right[1] != 'undefined' && prog === undefined){rhythmgame();begintext.setAttribute("fill-opacity", "0");exphitbar(0,1,document.getElementById("hitbar"));} //The game shouldn't start before the parser is finished! 
 		break;
-		case 49:
-		case 50:
-		case 51:
-		case 52:
-        scoreeval((event.keyCode-48)*20-10);
+		case 68:
+        if(prog != undefined){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
+		break;
+		case 70:
+        if(prog != undefined){scoreeval(30);/*beat2.currentTime=0;beat2.play();*/}
+		break;
+		case 74:
+        if(prog != undefined){scoreeval(50);/*beat3.currentTime=0;beat3.play();*/}
+		break;
+		case 75:
+        if(prog != undefined){scoreeval(70);/*beat4.currentTime=0;beat4.play();*/}
+		break;
+		case 13:
+		if(end==true){location.reload()}
         break;
     }
 }, true);
@@ -73,14 +99,31 @@ document.addEventListener('keydown', function(event) {
  * elemarray: The array that holds the generated svg elements. Used to move them down.
  * posx: The array of the x-position values of snowflakes. Has as many elements as there has ever been snowflakes; bad practise, but I'm not a good programmer yet. Used to determine to line the snowflake is on.
  * posy: The array of the y-position values of snowflakes. Like posx, but for y-position; used to determine proximity to the hitline.
+ * end: Becomes true when can restart
  * scoretext and lnar are hopefully self-explanatory. They hold objects for manipulation.
+ * variables named after ranks are hopefully self-explanatory
+ * while setting stuff by document.getElementById just puts something into a variable
  */
 var notes, time, prog, beatrate = 5, gonecount = 0, score = 0;
+var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false;
 var elemarray = [], posx = [], posy = [];
 var scoretxt = document.getElementById("scoretxt");
+var endshadow = document.getElementById("endshadow");
+var misst = document.getElementById("misst");
+var badt = document.getElementById("badt");
+var okt = document.getElementById("okt");
+var goodt = document.getElementById("goodt");
+var greatt = document.getElementById("greatt");
+var perfectt = document.getElementById("perfectt");
+var finalscore = document.getElementById("finalscore");
+var thankyou = document.getElementById("thankyou");
 var lnar = [document.getElementById("ln1"), document.getElementById("ln2"), document.getElementById("ln3"), document.getElementById("ln4")];
 lnar[99] = [document.getElementById("errorretard")] //suppresses one error. 
-
+var hitding = new Audio('reflect.ogg');
+/*var beat1 = new Audio('beat1.ogg');
+var beat2 = new Audio('beat2.ogg');
+var beat3 = new Audio('beat3.ogg');
+var beat4 = new Audio('beat4.ogg');*/
 
 //BEGIN actual game
 function rhythmgame(){
@@ -98,7 +141,8 @@ function rhyloop(){
 	//console.log(prog);
 	//console.log(time[prog]);
 	prog++;
-	if (prog < notes.length) {setTimeout(function(){rhyloop();}, beatrate*time[prog-1])};
+	if (prog < notes.length) {setTimeout(function(){rhyloop();}, beatrate*time[prog-1])}
+	else {setTimeout(function(){ending()},2000)}
 }
 //Generates the snowflake beat object.
 function gendrake(){
@@ -160,6 +204,7 @@ function senddown(posx, posy, intprog){
 	if (posy[intprog] < 100){setTimeout(function(){senddown(posx, posy, intprog);}, 16.6666667)} //If it is not offscreen, repeat this 60-fps.
 	else {gonecount++;
 		if (posx[intprog] != 1990){score = score - 60; scoretxt.textContent = score; //decreases the score if a snowflake is missed, but not if the snowflake missed is the one placed far away to delay the starting time.
+		miss++;
 		lnar[(posx[intprog]+10)/20-1].textContent = "Miss"; //Displays a reddish miss text
 		lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
 		}
@@ -219,37 +264,86 @@ function scoreeval(loc){
 		//so I decided to not implement graded punishment for missing
 		case 4:
 		score = score + 20;
-		lnar[ln].textContent = "Close"; //Close, as in "You're close!" and not in "Line closed!"
+		bad++;
+		hitding.currentTime=0;
+		hitding.play();
+		lnar[ln].textContent = "Bad"; 
 		lnar[ln].setAttribute("fill", "#ffcc80") //Orange
 		break;
 		case 3:
 		score = score + 40;
+		ok++;
+		hitding.currentTime=0;
+		hitding.play();
 		lnar[ln].textContent = "OK";
 		lnar[ln].setAttribute("fill", "#fff59d"); //Yellow
 		break;
 		case 2:
 		score = score + 80;
+		good++;
+		hitding.currentTime=0;
+		hitding.play();
 		lnar[ln].textContent = "Good";
 		lnar[ln].setAttribute("fill", "#c5e1a5"); //Green
 		break;
 		case 1:
 		score = score + 140;
+		great++;
+		hitding.currentTime=0;
+		hitding.play();
 		lnar[ln].textContent = "Great";
 		lnar[ln].setAttribute("fill", "#80cbc4"); //Teal
 		break;
 		case 0:
 		score = score + 200;
+		perfect++;
+		hitding.currentTime=0;
+		hitding.play();
 		lnar[ln].textContent = "Perfect";
 		lnar[ln].setAttribute("fill", "#ce93d8"); //Purple
 		break;
 		default:
 		score = score - 60;
+		miss++;
 		lnar[ln].textContent = "Miss";
 		lnar[ln].setAttribute("fill", "#ef9a9a"); //Red
 	}
 	//Updates the text onscreen.
 	scoretxt.textContent = score	
 	//console.log(score);
+}
+function ending(){
+	console.log("end");
+	fadeblack(0);
+	setTimeout(function(){endingtext()},2500);
+}
+function fadeblack(opac){
+	opac++
+	endshadow.setAttribute("fill-opacity", opac/300);
+	if (opac<220) {setTimeout(function(){fadeblack(opac)},16.6666667)}
+}
+function endingtext(){
+	misst.textContent = " Miss: " + miss + "    "
+	badt.textContent = " Bad: " + bad + "    "
+	okt.textContent = " OK: " + ok + "    "
+	goodt.textContent = " Good: " + good + "    "
+	greatt.textContent = " Great: " + great + "    "
+	perfectt.textContent = " Perfect: " + perfect + "    "
+	finalscore.textContent = " Your Final Score: " + score + "    "
+	endtextfade(0)
+}
+function endtextfade(opac){
+	opac ++;
+	misst.setAttribute("fill-opacity", opac/400);
+	badt.setAttribute("fill-opacity", (opac-40)/400);
+	okt.setAttribute("fill-opacity", (opac-80)/400);
+	goodt.setAttribute("fill-opacity", (opac-140)/400);
+	greatt.setAttribute("fill-opacity", (opac-200)/400);
+	perfectt.setAttribute("fill-opacity", (opac-280)/400);
+	finalscore.setAttribute("fill-opacity", (opac-500)/400);
+	thankyou.setAttribute("fill-opacity", (opac-1500)/900);
+	if (opac<2400) {setTimeout(function(){endtextfade(opac),16.6666667})}
+	else {end=true}
 }
 ]]>
 </script>
