@@ -11,6 +11,10 @@
 </defs>
 <rect x="-10000" y="-10000" width="20000" height="20000" style="fill:#000000" />
 <rect x="0" y="0" width="100" height="100" style="fill:#263238" />
+<rect id="col1" x="0" y="0" width="100" height="100" style="fill:#263238" />
+<rect id="col2" x="0" y="0" width="100" height="100" style="fill:#263238" />
+<rect id="col3" x="0" y="0" width="100" height="100" style="fill:#263238" />
+<rect x="0" y="0" width="100" height="100" style="fill:#263238" />
 <line id="hitbar" y2="85" x2="50" y1="85" x1="50" stroke-width="0.25" stroke="#cfd8dc" fill="none"/>
 <text id="title" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="23" fill="#f0f0f0">RhyDrake by Group 2</text>
 <g id="begintext" fill-opacity="1">
@@ -18,10 +22,10 @@
 	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="15" x="18" fill="#f0f0f0">Use keys DFJK!</text>
 </g>
 <text id="scoretxt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="50" fill="#f0f0f0">0</text>
-<text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Ready</text>
-<text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Ready</text>
-<text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Ready</text>
-<text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Ready</text>
+<text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Key D</text>
+<text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Key F</text>
+<text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Key J</text>
+<text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Key K</text>
 <rect id="endshadow" x="0" y="0" width="100" height="100" fill="url(#endshadgrad)" fill-opacity="0" />
 <text id="errorretard" x="98112.6" fill="#f0f0f0">aaa</text>
 <text id="thankyou" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="82.5" x="50" fill="#ef9a9a" fill-opacity="0"> Thank you for playing! Press Enter to play again.</text>
@@ -104,7 +108,7 @@ document.addEventListener('keydown', function(event) {
  * variables named after ranks are hopefully self-explanatory
  * while setting stuff by document.getElementById just puts something into a variable
  */
-var notes, time, prog, beatrate = 5, gonecount = 0, score = 0;
+var notes, time, prog, beatrate = 13.95348837209302, gonecount = 0, score = 0;
 var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false;
 var elemarray = [], posx = [], posy = [];
 var scoretxt = document.getElementById("scoretxt");
@@ -120,6 +124,7 @@ var thankyou = document.getElementById("thankyou");
 var lnar = [document.getElementById("ln1"), document.getElementById("ln2"), document.getElementById("ln3"), document.getElementById("ln4")];
 lnar[99] = [document.getElementById("errorretard")] //suppresses one error. 
 var hitding = new Audio('reflect.ogg');
+var music = new Audio('music.ogg');
 /*var beat1 = new Audio('beat1.ogg');
 var beat2 = new Audio('beat2.ogg');
 var beat3 = new Audio('beat3.ogg');
@@ -132,6 +137,7 @@ function rhythmgame(){
 	time = right; //Turns the generic left/right names of the parser into more useful names.
 	//console.log(time);
 	prog = 0; //Sets progress to zero
+	setTimeout(function(){music.play()},600);
 	rhyloop(); //begin the main loop!
 }
 
