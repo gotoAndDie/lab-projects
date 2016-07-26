@@ -32,16 +32,17 @@
 </defs>
 <rect x="-10000" y="-10000" width="20000" height="20000" style="fill:#000000"/>
 <rect x="0" y="0" width="100" height="100" style="fill:#263238" />
-<rect id="col1" x="8" y="0" width="20" height="100" fill="url(#bsg)" fill-opacity="1" />
-<rect id="col2" x="28" y="0" width="20" height="100" fill="url(#rsg)" fill-opacity="1"/>
-<rect id="col3" x="48" y="0" width="20" height="100" fill="url(#ysg)" fill-opacity="1"/>
-<rect id="col4" x="68" y="0" width="20" height="100" sfill="url(#grsg)" fill-opacity="1"/>
+<rect id="col1" x="8" y="0" width="20" height="100" fill="url(#bsg)" fill-opacity="0" />
+<rect id="col2" x="28" y="0" width="20" height="100" fill="url(#rsg)" fill-opacity="0"/>
+<rect id="col3" x="48" y="0" width="20" height="100" fill="url(#ysg)" fill-opacity="0"/>
+<rect id="col4" x="68" y="0" width="20" height="100" fill="url(#grsg)" fill-opacity="0"/>
 <line id="hitbar" y2="85" x2="50" y1="85" x1="50" stroke-width="0.25" stroke="#cfd8dc" fill="none"/>
 <text id="title" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="23" fill="#f0f0f0">RhyDrake by Group 2</text>
 <g id="begintext" fill-opacity="1">
 	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="25" fill="#f0f0f0">- Press Space to start -</text>
 	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="15" x="18" fill="#f0f0f0">Use keys DFJK!</text>
 </g>
+<text id="progdebug" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="50" fill="#f0f0f0">0</text>
 <text id="scoretxt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="50" fill="#f0f0f0">0</text>
 <text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Key D</text>
 <text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Key F</text>
@@ -60,6 +61,7 @@
 <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 <![CDATA[
+//[]Katefix/
 //CSV parser. Turns CSV file into script for the game. Copied from the web and modified.
 var left, right
 function parser(){
@@ -97,19 +99,19 @@ document.addEventListener('keydown', function(event) {
 		if (typeof right[1] != 'undefined' && prog === undefined){rhythmgame();begintext.setAttribute("fill-opacity", "0");exphitbar(0,1,document.getElementById("hitbar"));} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
-        if(prog != undefined){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
+        if(prog != undefined && end != true){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
 		break;
 		case 70:
-        if(prog != undefined){scoreeval(30);/*beat2.currentTime=0;beat2.play();*/}
+        if(prog != undefined && end != true){scoreeval(30);/*beat2.currentTime=0;beat2.play();*/}
 		break;
 		case 74:
-        if(prog != undefined){scoreeval(50);/*beat3.currentTime=0;beat3.play();*/}
+        if(prog != undefined && end != true){scoreeval(50);/*beat3.currentTime=0;beat3.play();*/}
 		break;
 		case 75:
-        if(prog != undefined){scoreeval(70);/*beat4.currentTime=0;beat4.play();*/}
+        if(prog != undefined && end != true){scoreeval(70);/*beat4.currentTime=0;beat4.play();*/}
 		break;
 		case 13:
-		if(end==true){location.reload()}
+		if(end == true){location.reload()}
         break;
     }
 }, true);
@@ -142,8 +144,10 @@ var greatt = document.getElementById("greatt");
 var perfectt = document.getElementById("perfectt");
 var finalscore = document.getElementById("finalscore");
 var thankyou = document.getElementById("thankyou");
+var progdebug = document.getElementById("progdebug");
 var lnar = [document.getElementById("ln1"), document.getElementById("ln2"), document.getElementById("ln3"), document.getElementById("ln4")];
-lnar[99] = [document.getElementById("errorretard")] //suppresses one error. 
+lnar[99] = [document.getElementById("errorretard")]; //suppresses one error. 
+var col = [document.getElementById("col1"), document.getElementById("col2"), document.getElementById("col3"), document.getElementById("col4")];
 var hitding = new Audio('reflect.ogg');
 var music = new Audio('music.ogg');
 /*var beat1 = new Audio('beat1.ogg');
@@ -158,7 +162,8 @@ function rhythmgame(){
 	time = right; //Turns the generic left/right names of the parser into more useful names.
 	//console.log(time);
 	prog = 0; //Sets progress to zero
-	setTimeout(function(){music.play()},600);
+    
+	setTimeout(function(){music.play();music.currentTime = 0},600);
 	rhyloop(); //begin the main loop!
 }
 
@@ -167,9 +172,10 @@ function rhyloop(){
 	gendrake() //Invokes the function for generating snowflakes.
 	//console.log(prog);
 	//console.log(time[prog]);
+    progdebug.textContent=prog
 	prog++;
 	if (prog < notes.length) {setTimeout(function(){rhyloop();}, beatrate*time[prog-1])}
-	else {setTimeout(function(){ending()},2000)}
+	else {setTimeout(function(){end=true},1000);setTimeout(function(){ending()},2000)}
 }
 //Generates the snowflake beat object.
 function gendrake(){
@@ -265,7 +271,7 @@ function scoreeval(loc){
 		if (posx[i]==loc && prox > Math.abs(85-posy[i])){
 			prox = Math.abs(75-posy[i]);
 			//Removes the snowflake by moving it to somewhere far if the keypress was close enough. 
-			if (prox<15){posx[i]=1990}
+			if (prox<15){flashfade((posx[i]+10)/20-1,0);posx[i]=1990}
 		}
 	}
 	//console.log(ln);
@@ -339,6 +345,17 @@ function scoreeval(loc){
 	scoretxt.textContent = score	
 	//console.log(score);
 }
+function flashfade(obj,opac){
+	col[obj].setAttribute("fill-opacity", 2.718281828^(opac));
+	opac++
+	if (opac<6) {setTimeout(function(){flashfade(obj,opac)}, 16.6666667)}
+	else {flashfade2(obj,0)}
+}
+function flashfade2(obj,opac){
+	col[obj].setAttribute("fill-opacity", 0.4-2.718281828^(opac/10));
+	opac++
+	if (opac<60) {setTimeout(function(){flashfade2(obj,opac)}, 16.6666667)}
+}
 function ending(){
 	console.log("end");
 	fadeblack(0);
@@ -368,8 +385,8 @@ function endtextfade(opac){
 	greatt.setAttribute("fill-opacity", (opac-200)/400);
 	perfectt.setAttribute("fill-opacity", (opac-280)/400);
 	finalscore.setAttribute("fill-opacity", (opac-500)/400);
-	thankyou.setAttribute("fill-opacity", (opac-1500)/900);
-	if (opac<2400) {setTimeout(function(){endtextfade(opac),16.6666667})}
+	thankyou.setAttribute("fill-opacity", (opac-1300)/900);
+	if (opac<2200) {setTimeout(function(){endtextfade(opac),16.6666667})}
 	else {end=true}
 }
 ]]>
