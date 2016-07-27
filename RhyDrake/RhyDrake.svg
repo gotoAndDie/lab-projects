@@ -141,6 +141,7 @@
 //CSV parser. Turns CSV file into script for the game. Copied from the web and modified.
 var left, right
 function parser(){
+music.load()
 coverfade(120,untilload)
 $(document).ready(function() {
     $.ajax({
@@ -172,7 +173,7 @@ document.addEventListener('keydown', function(event) {
 		//Currently, it detects spacebar to begin the game, and the number keys 1, 2, 3 and 4 as input during the game. 
 		//Nothing prevents you from pressing the number keys before the game starts. Feel free to lower your own score as you please.
 		case 32:
-		if (typeof right[1] != 'undefined' && prog === undefined){coverfade(120,cover);setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
+		if (music.readyState=true && typeof right[1] != 'undefined' && prog === undefined){coverfade(120,cover);setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
@@ -460,11 +461,12 @@ function endingtext(){
 	greatt.textContent = " Great: " + great + "    "
 	perfectt.textContent = " Perfect: " + perfect + "    "
 	finalscore.textContent = " Your Final Score: " + score + "    "
-	if (score = 41800){
+	if (score == 41800){
 		rank.textContent = "Rank: True Perfect!";
 		rank.setAttribute("fill", "#ce93d8");
 	}
-	else if (score > 40000) {
+	else 
+	if (score > 40000) {
 		rank.textContent = "Rank: P";
 		rank.setAttribute("fill", "#ce93d8");
 	}
