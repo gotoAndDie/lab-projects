@@ -28,36 +28,112 @@
       <stop offset="50%" style="stop-color:#33dd33;stop-opacity:0.4" />  
       <stop offset="100%" style="stop-color#33dd33;stop-opacity:0" />
   </linearGradient>
-
+  <!--
+  <radialGradient id="rg" cx="0.5" cy="0.5" r="0.25" spreadMethod="repeat">
+		<stop offset="0" stop-color="#000000">
+		<animate id="anim" attributeName="stop-opacity" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0;1;0" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		</stop>
+		<stop stop-color="#000000">
+		<animate attributeName="offset" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0;0;0.5" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		<animate attributeName="stop-opacity" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0;1;1" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		</stop>
+		<stop  stop-color="#000000" stop-opacity="0">
+		<animate attributeName="offset" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0;1" keiTimes="0;1" repeatCount="indefinite"/>
+		</stop>
+		<stop stop-color="#000000">
+		<animate attributeName="offset" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0.5;1;1" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		<animate attributeName="stop-opacity" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="1;1;0" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		</stop>
+		<stop offset="1" stop-color="#000000">
+		<animate attributeName="stop-opacity" 
+            calcMode="linear" begin="0s" dur="6s"
+            values="0;1;0" keiTimes="0;0.5;1" repeatCount="indefinite"/>
+		</stop>
+    </radialGradient>
+    <radialGradient id="rg2" cx="0.5" cy="0.5" r="1">
+        <stop offset="0%" stop-opacity="0"/>
+        <stop offset="100%" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="sazanami" filterUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+        <feImage xlink:href="#wave" result="wave"/>
+		<feGaussianBlur in="wave" stdDeviation="8" result="wave2"/>
+		<feDiffuseLighting in="wave2" lighting-color="#303030" 
+			surfaceScale="50" diffuseConstant="0.3" result="wave3">
+            <feDistantLight azimuth="-90" elevation="60"/>
+		</feDiffuseLighting>
+		<feDisplacementMap in="SourceGraphic" in2="wave2" scale="-10" result="wave4"/>
+		<feBlend in="wave3" in2="wave4" mode="screen"/>
+		</filter>
+		<filter id="sazanamiF" filterUnits="userSpaceOnUse" x="0" y="0" width="200" height="100">
+		<feOffset in="SourceGraphic" result="wave" dx="-100" 
+			x="0" y="0" width="100" height="100"/>
+		<feGaussianBlur in="wave" stdDeviation="8" result="wave2" 
+			x="0" y="0" width="100" height="100"/>
+		<feDiffuseLighting in="wave2" lighting-color="#303030" 
+			surfaceScale="50" diffuseConstant="0.3" result="wave3" 
+			x="0" y="0" width="100" height="100">
+			<feDistantLight azimuth="-90" elevation="60"/>
+		</feDiffuseLighting>
+		<feDisplacementMap in="SourceGraphic" in2="wave2" scale="-10" result="wave4" 
+			x="0" y="0" width="100" height="100"/>
+		<feBlend in="wave3" in2="wave4" mode="screen" 
+			x="0" y="0" width="100" height="100"/>
+		</filter>
+    <g id="wave">
+		<rect width="20" height="20" fill="url(#rg)"/>
+		<rect width="20" height="20" fill="url(#rg2)"/>
+    </g>
+	-->
 </defs>
 <rect x="-10000" y="-10000" width="20000" height="20000" style="fill:#000000"/>
 <rect x="0" y="0" width="100" height="100" style="fill:#263238" />
+<switch>
+<!--
+<g filter="url(#sazanami)" requiredFeatures="http://www.w3.org/TR/SVG11/feature#SVG-animation">
+	<rect x="0" y ="0" width="20" height="20" fill="#000000"/>
+    
+</g>
+-->
+</switch>
+<image style="overflow:visible;" width="100" height="100" xlink:href="background.png"/>
+
+
 <rect id="col1" x="8" y="0" width="20" height="100" fill="url(#bsg)" fill-opacity="0" />
 <rect id="col2" x="28" y="0" width="20" height="100" fill="url(#rsg)" fill-opacity="0"/>
 <rect id="col3" x="48" y="0" width="20" height="100" fill="url(#ysg)" fill-opacity="0"/>
 <rect id="col4" x="68" y="0" width="20" height="100" fill="url(#grsg)" fill-opacity="0"/>
 <line id="hitbar" y2="85" x2="50" y1="85" x1="50" stroke-width="0.25" stroke="#cfd8dc" fill="none"/>
-<text id="title" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="23" fill="#f0f0f0">RhyDrake by Group 2</text>
-<g id="begintext" fill-opacity="1">
-	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="25" fill="#f0f0f0">- Press Space to start -</text>
-	<text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="15" x="18" fill="#f0f0f0">Use keys DFJK!</text>
-</g>
-<text id="progdebug" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="10" x="50" fill="#f0f0f0">0</text>
-<text id="scoretxt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="5" x="50" fill="#f0f0f0">0</text>
-<text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Key D</text>
-<text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Key F</text>
-<text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Key J</text>
-<text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Key K</text>
+<text id="title" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="5" x="23" fill="#f0f0f0">RhyDrake by Group 2</text>
+<text id="scoretxt" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="5" x="50" fill="#f0f0f0">0</text>
+<text id="ln1" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="90" x="17.5" fill="#f0f0f0">Key D</text>
+<text id="ln2" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="90" x="37.5" fill="#f0f0f0">Key F</text>
+<text id="ln3" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="90" x="57.5" fill="#f0f0f0">Key J</text>
+<text id="ln4" xml:space="preserve" text-anchor="middle" font-family="Impact, Charcoal, sans-serif" font-size="4" y="90" x="77.5" fill="#f0f0f0">Key K</text>
 <rect id="endshadow" x="0" y="0" width="100" height="100" fill="url(#endshadgrad)" fill-opacity="0" />
 <text id="errorretard" x="98112.6" fill="#f0f0f0">aaa</text>
-<text id="thankyou" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="82.5" x="50" fill="#ef9a9a" fill-opacity="0"> Thank you for playing! Press Enter to play again.</text>
-<text id="misst" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="30" x="50" fill="#ef9a9a"></text>
-<text id="badt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="37.5" x="50" fill="#ffcc80"></text>
-<text id="okt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="45" x="50" fill="#fff59d"></text>
-<text id="goodt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="52.5" x="50" fill="#c5e1a5"></text>
-<text id="greatt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="60" x="50" fill="#80cbc4"></text>
-<text id="perfectt" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="67.5" x="50" fill="#ce93d8"></text>
-<text id="finalscore" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="4" y="75" x="50" fill="#f0f0f0"></text>
+<text id="thankyou" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="82.5" x="50" fill="#ef9a9a" fill-opacity="0"> Thank you for playing! Press Enter to reload.</text>
+<text id="misst" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="22.5" x="50" fill="#ef9a9a"></text>
+<text id="badt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="30" x="50" fill="#ffcc80"></text>
+<text id="okt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="37.5" x="50" fill="#fff59d"></text>
+<text id="goodt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="45" x="50" fill="#c5e1a5"></text>
+<text id="greatt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="52.5" x="50" fill="#80cbc4"></text>
+<text id="perfectt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="60" x="50" fill="#ce93d8"></text>
+<text id="finalscore" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="67.5" x="50" fill="#f0f0f0"></text>
+<text id="rankt" xml:space="preserve" text-anchor="middle" font-family="Copperplate, Copperplate Gothic Light, fantasy, Sans-serif" font-size="4" y="75" x="50" fill="#f0f0f0"></text>
+<image id="cover" style="overflow:visible;" width="100" height="100" xlink:href="cover.png" opacity="1"/>
+<rect id="untilload" x="-10000" y="-10000" width="20000" height="20000" style="fill:#000000"/>
 <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 <![CDATA[
@@ -65,6 +141,7 @@
 //CSV parser. Turns CSV file into script for the game. Copied from the web and modified.
 var left, right
 function parser(){
+coverfade(120,untilload)
 $(document).ready(function() {
     $.ajax({
         type: "GET",
@@ -85,18 +162,17 @@ function processData(allText) {
         left[i] = parseInt(data[0]);
         right[i] = parseInt(data[1]);
     }
-    console.log(left);
-    console.log(right);
+    //console.log(left);
+    //console.log(right);
 }}
 //End of parser.
 //Adding the EventListener for keyboard presses.
-var begintext = document.getElementById("begintext");
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		//Currently, it detects spacebar to begin the game, and the number keys 1, 2, 3 and 4 as input during the game. 
 		//Nothing prevents you from pressing the number keys before the game starts. Feel free to lower your own score as you please.
 		case 32:
-		if (typeof right[1] != 'undefined' && prog === undefined){rhythmgame();begintext.setAttribute("fill-opacity", "0");exphitbar(0,1,document.getElementById("hitbar"));} //The game shouldn't start before the parser is finished! 
+		if (typeof right[1] != 'undefined' && prog === undefined){coverfade(120,cover);setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
@@ -143,8 +219,10 @@ var goodt = document.getElementById("goodt");
 var greatt = document.getElementById("greatt");
 var perfectt = document.getElementById("perfectt");
 var finalscore = document.getElementById("finalscore");
+var rank = document.getElementById("rankt");
 var thankyou = document.getElementById("thankyou");
-var progdebug = document.getElementById("progdebug");
+var cover = document.getElementById("cover");
+var untilload = document.getElementById("untilload");
 var lnar = [document.getElementById("ln1"), document.getElementById("ln2"), document.getElementById("ln3"), document.getElementById("ln4")];
 lnar[99] = [document.getElementById("errorretard")]; //suppresses one error. 
 var col = [document.getElementById("col1"), document.getElementById("col2"), document.getElementById("col3"), document.getElementById("col4")];
@@ -156,14 +234,19 @@ var beat3 = new Audio('beat3.ogg');
 var beat4 = new Audio('beat4.ogg');*/
 
 //BEGIN actual game
+function coverfade(opac,obj){
+	obj.setAttribute("opacity", opac/120);
+	opac--;
+	if(opac > 0) {setTimeout(function(){coverfade(opac,obj);},8.33333333333333)}
+}
 function rhythmgame(){
-	console.log("start")
+	//console.log("start")
 	notes = left;
 	time = right; //Turns the generic left/right names of the parser into more useful names.
 	//console.log(time);
 	prog = 0; //Sets progress to zero
-    
-	setTimeout(function(){music.play();music.currentTime = 0},600);
+    exphitbar(0,1,document.getElementById("hitbar"));
+	setTimeout(function(){music.play()},600);
 	rhyloop(); //begin the main loop!
 }
 
@@ -172,7 +255,6 @@ function rhyloop(){
 	gendrake() //Invokes the function for generating snowflakes.
 	//console.log(prog);
 	//console.log(time[prog]);
-    progdebug.textContent=prog
 	prog++;
 	if (prog < notes.length) {setTimeout(function(){rhyloop();}, beatrate*time[prog-1])}
 	else {setTimeout(function(){end=true},1000);setTimeout(function(){ending()},2000)}
@@ -232,14 +314,18 @@ function gendrake(){
 }
 //sends the object downwards.
 function senddown(posx, posy, intprog){
-	posy[intprog] = posy[intprog]+2 //The number 2 controls how fast the snowflake falls. There shouldn't be much need to change this, so it isn't a variable. Changing this won't hurt, though; the rhythm is unaffected by this value. We only have to change when it starts.
+	posy[intprog]++ //actually moves two gridspaces per 60fps. But I increased it to 120 fps.
 	elemarray[intprog].setAttribute("transform", "translate("+posx[intprog]+" "+posy[intprog]+") scale(0.03)" );
-	if (posy[intprog] < 100){setTimeout(function(){senddown(posx, posy, intprog);}, 16.6666667)} //If it is not offscreen, repeat this 60-fps.
+	if (posy[intprog] < 100){setTimeout(function(){senddown(posx, posy, intprog);}, 8.33333333333333)} //If it is not offscreen, repeat this 120-fps.
 	else {gonecount++;
 		if (posx[intprog] != 1990){score = score - 60; scoretxt.textContent = score; //decreases the score if a snowflake is missed, but not if the snowflake missed is the one placed far away to delay the starting time.
 		miss++;
 		lnar[(posx[intprog]+10)/20-1].textContent = "Miss"; //Displays a reddish miss text
 		lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
+        posx[intprog]=undefined;//Probably free up some ram?
+        posy[intprog]=undefined;
+        elemarray[intprog]=undefined;
+        
 		}
 	}
 }
@@ -264,7 +350,7 @@ function scoreeval(loc){
 	 * ln: The line number. Used to determine which text object to modify. It is nearly the inverse of the operation on line 66; that and this only needs to be executed once each per note, but loc is needed for every snowflake it scans through.
 	 * posysy: where posy.length is temporaily stored to increase performance.
 	 */
-	var i, q, prox = 999, ln = (loc+10)/20-1, posysy = posy.length
+	var i, q, prox = 999, ln = loc/20-0.5, posysy = posy.length
 	
 	//Scans through the list of snowflakes onscreen, and puts the distance between the closest one and the hitbar in prox.
 	for (i=gonecount; i<posysy; i++){
@@ -275,7 +361,7 @@ function scoreeval(loc){
 		}
 	}
 	//console.log(ln);
-	console.log("Proximity:" + prox);
+	//console.log("Proximity:" + prox);
 	//Divides prox by 2, and then floors it. Prox from now on can only have integer values. Used to allow different speeds and faciliate score determination.
 	prox = Math.floor(prox/2)
 	switch (prox) {
@@ -357,7 +443,7 @@ function flashfade2(obj,opac){
 	if (opac<60) {setTimeout(function(){flashfade2(obj,opac)}, 16.6666667)}
 }
 function ending(){
-	console.log("end");
+	//console.log("end");
 	fadeblack(0);
 	setTimeout(function(){endingtext()},2500);
 }
@@ -374,6 +460,62 @@ function endingtext(){
 	greatt.textContent = " Great: " + great + "    "
 	perfectt.textContent = " Perfect: " + perfect + "    "
 	finalscore.textContent = " Your Final Score: " + score + "    "
+	if (score = 41800){
+		rank.textContent = "Rank: True Perfect!";
+		rank.setAttribute("fill", "#ce93d8");
+	}
+	else if (score > 40000) {
+		rank.textContent = "Rank: P";
+		rank.setAttribute("fill", "#ce93d8");
+	}
+	else if (score > 36000) {
+		rank.textContent = "Rank: SS";
+		rank.setAttribute("fill", "#80cbc4");
+	}
+	else if (score > 32000) {
+		rank.textContent = "Rank: S";
+		rank.setAttribute("fill", "#80cbc4");
+	}
+	else if (score > 30000) {
+		rank.textContent = "Rank: A+";
+		rank.setAttribute("fill", "#c5e1a5");
+	}
+	else if (score > 28000) {
+		rank.textContent = "Rank: A";
+		rank.setAttribute("fill", "#c5e1a5");
+	}
+	else if (score > 26000) {
+		rank.textContent = "Rank: A-";
+		rank.setAttribute("fill", "#c5e1a5");
+	}
+	else if (score > 24000) {
+		rank.textContent = "Rank: B+";
+		rank.setAttribute("fill", "#fff59d");
+	}
+	else if (score > 22000) {
+		rank.textContent = "Rank: B";
+		rank.setAttribute("fill", "#fff59d");
+	}
+	else if (score > 20000) {
+		rank.textContent = "Rank: B-";
+		rank.setAttribute("fill", "#fff59d");
+	}
+	else if (score > 18000) {
+		rank.textContent = "Rank: C+";
+		rank.setAttribute("fill", "#ffcc80");
+	}
+	else if (score > 16000) {
+		rank.textContent = "Rank: C";
+		rank.setAttribute("fill", "#ffcc80");
+	}
+	else if (score > 14000) {
+		rank.textContent = "Rank: C-";
+		rank.setAttribute("fill", "#ffcc80");
+	}
+	else {
+		rank.textContent = "Rank: Miss";
+		rank.setAttribute("fill", "#ef9a9a");
+	}
 	endtextfade(0)
 }
 function endtextfade(opac){
