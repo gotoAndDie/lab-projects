@@ -173,7 +173,7 @@ document.addEventListener('keydown', function(event) {
 		//Currently, it detects spacebar to begin the game, and the number keys 1, 2, 3 and 4 as input during the game. 
 		//Nothing prevents you from pressing the number keys before the game starts. Feel free to lower your own score as you please.
 		case 32:
-		if (music.readyState=true && typeof right[1] != 'undefined' && prog === undefined){coverfade(120,cover);setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
+		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);/*beat1.currentTime=0;beat1.play();*/}
@@ -247,7 +247,7 @@ function rhythmgame(){
 	//console.log(time);
 	prog = 0; //Sets progress to zero
     exphitbar(0,1,document.getElementById("hitbar"));
-	setTimeout(function(){music.play()},600);
+	setTimeout(function(){music.CurrentTime = 0;music.play()},1600);
 	rhyloop(); //begin the main loop!
 }
 
@@ -529,6 +529,7 @@ function endtextfade(opac){
 	greatt.setAttribute("fill-opacity", (opac-200)/400);
 	perfectt.setAttribute("fill-opacity", (opac-280)/400);
 	finalscore.setAttribute("fill-opacity", (opac-500)/400);
+	rank.setAttribute("fill-opacity", (opac-750)/400);
 	thankyou.setAttribute("fill-opacity", (opac-1300)/900);
 	if (opac<2200) {setTimeout(function(){endtextfade(opac),16.6666667})}
 	else {end=true}
