@@ -87,11 +87,10 @@ function processData(allText) {
         right[i] = parseInt(data[1]);
     }
 }}
-music.addEventListener('canplaythrough', function(){misready=true;}, false);
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		case 32:
-		if (misready=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
+		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);}
@@ -112,7 +111,7 @@ document.addEventListener('keydown', function(event) {
 }, true);
 
 var notes, time, prog, beatrate = 13.95348837209302, gonecount = 0, score = 0;
-var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false, misready = false;
+var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false;
 var elemarray = [], posx = [], posy = [];
 var scoretxt = document.getElementById("scoretxt");
 var endshadow = document.getElementById("endshadow");
