@@ -76,7 +76,6 @@ $(document).ready(function() {
      });
 });
 function processData(allText) {
-	//console.log(allText);
     var allTextLines = allText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(',');
     left = [];
@@ -88,10 +87,11 @@ function processData(allText) {
         right[i] = parseInt(data[1]);
     }
 }}
+music.addEventListener('canplaythrough', function(){misready=true;}, false);
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		case 32:
-		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
+		if (misready=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);}
@@ -112,7 +112,7 @@ document.addEventListener('keydown', function(event) {
 }, true);
 
 var notes, time, prog, beatrate = 13.95348837209302, gonecount = 0, score = 0;
-var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false;
+var miss=0,bad=0,ok=0,good=0,great=0,perfect=0, end = false, misready = false;
 var elemarray = [], posx = [], posy = [];
 var scoretxt = document.getElementById("scoretxt");
 var endshadow = document.getElementById("endshadow");
@@ -143,10 +143,10 @@ function rhythmgame(){
 	notes = left;
 	time = right; 
 	
-	prog = 0; //Sets progress to zero
+	prog = 0; 
     exphitbar(0,1,document.getElementById("hitbar"));
 	setTimeout(function(){music.CurrentTime = 0;music.play()},1600);
-	rhyloop(); //begin the main loop!
+	rhyloop();
 }
 
 function rhyloop(){
@@ -163,7 +163,6 @@ function gendrake(){
 	elem = document.createElementNS(xmlns, "path");
 	elem.setAttribute("d","m260.40914,0l-62.36354,35.4729l0,32.81913l41.87855,2.69952l-1.80404,28.26982l-33.72115,0.89548l-25.04085,18.64174l25.04085,19.11236l30.96934,0.47062l0,14.56304l-22.28904,0.90202l0.90202,25.0866l20.9164,0.90202l0.47062,17.26256l-46.42786,-21.81842l-4.55585,49.61108l-14.5565,-6.83051l9.53003,-19.11236l-20.485,-12.759l-12.759,20.01438l-13.65449,-8.63455l15.03366,-26.83835l-1.37917,-32.34851l-30.92358,12.28838l-15.92914,27.78613l-26.42002,-12.28185l18.21034,-34.61664l-29.1653,-17.31485l-60.98437,35.04804l-0.90202,71.521l28.68815,15.92914l22.28904,-33.244l25.518,14.08589l-17.78547,29.64246l3.17668,30.49218l30.96934,-11.85698l15.51082,-29.11955l15.45852,8.15739l-12.28185,20.96215l22.75965,13.18387l10.90921,-20.90986l16.41283,9.53003l-43.72834,31.87136l43.72834,31.86482l-16.41283,9.58232l-10.90921,-20.96215l-22.75965,13.22962l12.28185,21.39355l-15.45852,7.72599l-15.51082,-29.11955l-30.96934,-11.85045l-3.17668,30.49218l17.78547,29.59016l-25.518,14.13164l-22.28904,-33.244l-28.68815,16.41283l0.90202,70.99156l60.98437,35.09379l29.1653,-16.88345l-18.21034,-35.0415l26.42002,-12.28838l15.92914,27.79266l30.92358,12.28185l1.37917,-32.29622l-15.03366,-26.89064l13.65449,-8.67377l12.759,20.06013l20.485,-12.759l-9.53003,-19.11236l14.5565,-6.83051l4.55585,49.61108l46.42786,-21.86417l-0.47062,17.78547l-20.9164,0.47062l-0.90202,25.46571l22.28904,0.47716l0,14.5565l-30.96934,0.4314l-25.04085,19.15811l25.04085,18.6352l33.72115,0.94777l1.80404,28.22406l-41.87855,3.17668l0,32.29622l62.36354,35.56441l62.36354,-35.56441l0,-32.29622l-41.87855,-3.17668l1.80404,-28.22406l33.72115,-0.94777l25.04085,-18.6352l-25.04085,-19.15811l-31.44649,-0.4314l0,-14.5565l22.34133,-0.47716l-0.47716,-25.46571l-20.9164,-0.47062l-0.94777,-17.78547l46.48015,21.86417l4.98072,-49.61108l14.5565,6.83051l-9.53003,19.11236l20.485,12.759l12.28185,-20.06013l14.13164,8.67377l-15.03366,26.89064l0.90202,32.29622l31.40074,-12.28185l15.92914,-27.79266l26.42002,12.28838l-18.21034,35.0415l29.1653,16.88345l60.98437,-35.09379l0.90202,-70.99156l-28.68815,-16.41283l-22.28904,33.244l-25.518,-14.13164l17.30832,-29.59016l-2.69952,-30.49218l-30.96934,11.85045l-15.51082,29.11955l-15.93568,-7.72599l12.759,-21.39355l-22.75965,-13.22962l-10.90921,20.96215l-16.41283,-9.58232l43.72834,-31.86482l-43.72834,-31.87136l16.41283,-9.53003l10.90921,20.90986l22.75965,-13.18387l-12.759,-20.96215l15.93568,-8.15739l15.51082,29.11955l30.96934,11.85698l2.69952,-30.49218l-17.30832,-29.64246l25.518,-14.08589l22.28904,33.244l28.68815,-15.92914l-0.90202,-71.521l-60.98437,-35.04804l-29.1653,17.31485l18.21034,34.61664l-26.42002,12.28185l-15.92914,-27.78613l-31.40074,-12.28838l-0.90202,32.34851l15.03366,26.83835l-14.13164,8.63455l-12.28185,-20.01438l-20.485,12.759l9.53003,19.11236l-14.5565,6.83051l-4.98072,-49.61108l-46.48015,21.81842l0.94777,-17.26256l20.9164,-0.90202l0.47716,-25.0866l-22.34133,-0.90202l0,-14.56304l31.44649,-0.47062l25.04085,-19.11236l-25.04085,-18.64174l-33.72115,-0.89548l-1.80404,-28.26982l41.87855,-2.69952l0,-32.81913l-62.36354,-35.4729z");
 	elem.setAttribute("stroke-miterlimit",10.433);
-	//Changing the color depending on the line
 	switch (notes[prog]){
 		case 1:
 		elem.setAttribute("fill","#00ffff");
@@ -232,7 +231,7 @@ function scoreeval(loc){
 		hitding.currentTime=0;
 		hitding.play();
 		lnar[ln].textContent = "Bad"; 
-		lnar[ln].setAttribute("fill", "#ffcc80") //Orange
+		lnar[ln].setAttribute("fill", "#ffcc80");
 		break;
 		case 3:
 		score = score + 40;
@@ -240,7 +239,7 @@ function scoreeval(loc){
 		hitding.currentTime=0;
 		hitding.play();
 		lnar[ln].textContent = "OK";
-		lnar[ln].setAttribute("fill", "#fff59d"); //Yellow
+		lnar[ln].setAttribute("fill", "#fff59d");
 		break;
 		case 2:
 		score = score + 80;
@@ -248,7 +247,7 @@ function scoreeval(loc){
 		hitding.currentTime=0;
 		hitding.play();
 		lnar[ln].textContent = "Good";
-		lnar[ln].setAttribute("fill", "#c5e1a5"); //Green
+		lnar[ln].setAttribute("fill", "#c5e1a5");
 		break;
 		case 1:
 		score = score + 140;
@@ -256,7 +255,7 @@ function scoreeval(loc){
 		hitding.currentTime=0;
 		hitding.play();
 		lnar[ln].textContent = "Great";
-		lnar[ln].setAttribute("fill", "#80cbc4"); //Teal
+		lnar[ln].setAttribute("fill", "#80cbc4");
 		break;
 		case 0:
 		score = score + 200;
@@ -264,17 +263,15 @@ function scoreeval(loc){
 		hitding.currentTime=0;
 		hitding.play();
 		lnar[ln].textContent = "Perfect";
-		lnar[ln].setAttribute("fill", "#ce93d8"); //Purple
+		lnar[ln].setAttribute("fill", "#ce93d8");
 		break;
 		default:
 		score = score - 60;
 		miss++;
 		lnar[ln].textContent = "Miss";
-		lnar[ln].setAttribute("fill", "#ef9a9a"); //Red
+		lnar[ln].setAttribute("fill", "#ef9a9a");
 	}
-	//Updates the text onscreen.
-	scoretxt.textContent = score	
-	//console.log(score);
+	scoretxt.textContent = score
 }
 function flashfade(obj,opac){
 	col[obj].setAttribute("fill-opacity", 2.718281828^(opac));
