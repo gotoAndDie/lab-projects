@@ -1,0 +1,40 @@
+body {
+  background-color: beige;
+  color: #000080;
+  margin:0;
+}
+.navigation{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background-color: #263238;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.nali{
+  float: left;
+  border-right: 0.5px solid #bbb;
+}
+.nali a{
+  display:block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+.nali a:hover {
+  background-color: #26A69A;
+}
+.nari {
+  float:right;
+}
+.active {
+  background-color: #00796B;
+}
+h1{
+  color: red;
+}
