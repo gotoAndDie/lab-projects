@@ -1,4 +1,4 @@
-webpage<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onload="parser()" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onload="parser()" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
 <defs>
   <filter id="svg_1_blur" x="-50%" y="-50%" width="200%" height="200%">
    <feGaussianBlur stdDeviation="12"/>
@@ -87,9 +87,14 @@ function processData(allText) {
         right[i] = parseInt(data[1]);
     }
 }}
+window.addEventListener('keydown', function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+});
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
-		case 13:
+		case 32:
 		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
