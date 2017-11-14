@@ -78,7 +78,7 @@ a:link{
 
 .meimg{
   box-shadow: 0px 0px 5px;
-  width: 350px;
+  max-width: 60%;
   display: block;
   margin: auto;
 } /* Styles for the image of me */
