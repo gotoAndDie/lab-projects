@@ -87,14 +87,11 @@ function processData(allText) {
         right[i] = parseInt(data[1]);
     }
 }}
-window.addEventListener('keydown', function(e) {
-  if(e.keyCode == 32 && e.target == document.body) {
-    e.preventDefault();
-  }
-});
+
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		case 32:
+                preventDefault();
 		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
 		break;
 		case 68:
