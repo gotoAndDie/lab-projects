@@ -1,0 +1,71 @@
+@keyframes font{
+  0% {font-size: 16px;}
+  75% {font-size: 20px;}
+  100% {font-size: 16px;}
+}
+.dis1{
+  animation-name: font;
+  animation-duration: 1s;
+  animation-iteration-count: 15;
+} /* Animation for Completely */
+
+@keyframes color{
+  6.25% {color:#F44336;}
+  12.5% {color:#E91E63;}
+  18.75% {color:#9C27B0;}
+  25% {color:#673AB7;}
+  31.25% {color:#315FB5;}
+  37.5% {color:#2196F3;}
+  43.75% {color:#03A9F4;}
+  50% {color:#00BCD4;}
+  56.25% {color:#009688;}
+  62.5% {color:#4CAF50;}
+  68.75% {color:#8BC34A;}
+  75% {color:#CDDC39;}
+  81.25% {color:#FFEB3B;}
+  87.5% {color:#FFC107;}
+  93.75% {color:#FF9800;}
+  100% {color:#F44336;}
+}
+.dis2{
+  animation-name: color;
+  animation-duration: 5s;
+  animation-iteration-count: 3;
+} /* Animation for Bug */
+
+@keyframes vibrate{
+  0% {transform: translate(4px,4px);}
+  10% {transform: translate(-3px,2px);}
+  20% {transform: translate(-2px,-4px);}
+  30% {transform: translate(2px,0px);}
+  40% {transform: translate(-5px,-3px);}
+  50% {transform: translate(5px,3px);}
+  60% {transform: translate(-2px,0px);}
+  70% {transform: translate(-4px,-1px);}
+  80% {transform: translate(-6px,3px);}
+  90% {transform: translate(3px,-5px);}
+  100%{transform: translate(4px,4px);}
+}
+.dis3{
+  animation-name: vibrate;
+  animation-duration: 1s;
+  animation-iteration-count: 15;
+  
+} /* Animation for Free */
+
+@keyframes appear{
+  0%{opacity: 0.0}
+  75% {opacity: 0.0}
+  100% {opacity: 1.0}
+} 
+.dis4{
+  animation-name: appear;
+  animation-duration:20s
+} /* Animation for It's fine again */
+
+.stabilizer{
+  font-size: 20px;
+} /* Prevents the content below this from being moved */
+.glitch:hover{
+  opacity: 0.0;
+} /* Hide on hover if needed */

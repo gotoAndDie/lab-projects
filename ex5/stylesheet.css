@@ -1,40 +1,100 @@
-body {
-  background-color: beige;
-  color: #000080;
-  margin:0;
+.divider{
+  width:87.77%;
+  border-style: double;
+} /* Style for the divider bars */
+.emph{
+  color:#4A14BC; /* Purple */
+  font-weight: bolder;
+} /* Style for purple pieces of text */
+
+h1{
+  color: #212121; /* Dark grey */
+  text-align: center;
+  font-weight: lighter;
+  font-variant: small-caps;
+  font-size: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0%;
 }
-.navigation{
-  list-style-type: none;
-  margin:0;
-  padding:0;
-  overflow:hidden;
-  background-color: #263238;
-  position: fixed;
-  top: 0;
+.maintitle{
+  font-size: 75px;
+} /* Pagetop titles */
+h2, h3, h4, th{
+  font-family:"Lucida Bright", Georgia, serif;
+} /* Subheading fonts */
+
+table{
+  border-spacing: 0px;
   width: 100%;
 }
-.nali{
-  float: left;
-  border-right: 0.5px solid #bbb;
+p, td{
+  font-family:"Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", "Georgia", serif;
+} /* Content fonts */
+
+.ctb{
+  border: 0.5px dotted black;
+} /* Used in the course rating table*/
+.ctbh{
+  border: 1px solid black;
+} /* Used in the course rating table*/
+.ctbh, .ctb{
+  padding: 15px
+} /* Used in the course rating table*/
+
+a:visited{
+  color:black;
 }
-.nali a{
-  display:block;
-  color:white;
-  text-align: center;
-  padding: 14px 16px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  font-size: 16px;
-  text-decoration: none;
+a:link{
+  color: #00796B; /* teal */
+} 
+.acc{
+  opacity: 0.0;
+  font-size: 0px;
+} /* Hidden text for accessibility*/
+
+
+/* Single attributes */
+.left{
+  text-align: left;
 }
-.nali a:hover {
-  background-color: #26A69A;
+.center{
+  text-align:center;
 }
-.nari {
-  float:right;
+.wide20{
+  width: 20%;
 }
-.active {
-  background-color: #00796B;
+.wide40{
+  width: 40%;
 }
-h1{
-  color: red;
+.wide50{
+  width: 50%;
+}
+.wide83.3{
+  width: 83.33%;
+}
+.wide16.7{
+  width: 16.67%;
+}
+
+.meimg{
+  box-shadow: 0px 0px 5px;
+  width: 350px;
+  display: block;
+  margin: auto;
+} /* Styles for the image of me */
+.goodimg{
+  width: 100px;
+  display: block;
+  margin: auto;
+} /* Style for attraction icons*/
+.errorimg{
+  width: 750px;
+  display: block;
+  margin: auto;
+} /* Style for the image in the experiments */
+
+
+iframe{
+  width: 750px;
+  height: 750px;
 }

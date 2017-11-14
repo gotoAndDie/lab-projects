@@ -1,44 +1,119 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" title="style">
-    <title>HTML-CSS demo by Leo Huang</title>
-  </head>
-  <body>
-    <ul class="navigation">
-      <li class="nali active"><a href="index.html">Home</a></li>
-      <li class="nali"><a href="page2.html">Test2</a></li>
-      <li class="nali"><a href="page3.html">Test3</a></li>
-      <li class="nali"><a href="page4.html">Test4</a></li>
-      <li class="nali nari"><a href="implementations.html">Implementations</a></li>
-    </ul>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="icon.png" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="navi.css" title="style">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" title="style">
+  <link rel="stylesheet" type="text/css" href="body.css" title="style">
+  <title>HTML-CSS demo by Leo Huang</title>
+</head>
+<body>
+  <!-- Navigation -->
+  <ul class="navigation"> <!--Navigation bar-->
+    <li class="nali active"><a href="index.html">Home</a></li>
+    <li class="nali"><a href="ethics.html">Ethics</a></li>
+    <li class="nali"><a href="game.html">Game</a></li>
+    <li class="nali"><a href="oldindex.html">Experiments</a></li>
+    <li class="nali nari"><a href="implementations.html">Implementations</a></li>
+  </ul>
+  
+  <div class="maindiv">
+    <h1 class="maintitle"> WelcomE! </h1>
+    <hr class="divider">
     <br>
-    <br>
-    <h1>This is a heading! </h1>
-    <div class="class1">
-      <p>Hello World!</p>
-      <a href="implementations.html"> The required implementations file </a>
-      <img src="what-is-my-ip.jpg">
-    </div>
-    <hr width="70%" size="2" align="center">
-    <hr noshade
-    <div>
-      <p>This is a paragraph of text! <br> This text is on a new line! <br> <br> <br> <br>
-         There should be space before this line! </p>
-      <p>This is another paragraph of text <span class="class2"> with a span in 
-         </span>  the middle! </p>
+    <div class="homebody">
+      <!-- Introduction -->
+      <table><tr>
+        <td class="wide50">
+          <h3 class="center">The figure to the right is me.</h3>
+          <p>Yes, yes it is. It may look a little dark and 
+          hard to see, but that figure to the right of this paragraph of text 
+          is indeed <i>me</i>. Where was I when this picture was taken? The thing is, I 
+          don't remember. It's anyone's guess, but I refuse to guess myself, 
+          because honestly, <i>I</i> of all people should know for sure where I was when 
+          this picture was taken - I was <i>there</i>, after all - yet I do not 
+          actually know. What I conclude from this is that I do have the 
+          ability to figure out exactly where I was when this picture was 
+          taken, without the need to guess. However, as that requires effort, 
+          I have elected not to do so. Which is always a nice choice in most 
+          cases. Most of the time.
+          <h3 class="center">Anyway,</h3>
+          <p>Welcome all, welcome to my <b>homepage</b>! Here, you 
+          will find a couple of things, which might be of interest to you, 
+          though most likely they'll be boring. They're mostly content dug 
+          out from other things I've done, after all.</p>
+        </td>
+        <td class="wide50">
+          <img src="me.png" class="meimg">
+        </td>
+      </tr></table>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <p> test </p>
-  </body>
+      <hr class="divider">
+      
+      <!-- Attractions Table -->
+      <h1>Attractions</h1>
+      <table>
+      <!-- Ethics Page -->
+      <tr><td><h2><a href="ethics.html">Ethics</a></h2></td><td></td></tr>
+      <tr>
+        <td class="wide83.3">
+        <p>First, a little background: So, it turned out that 
+        ethics was, like, <b>really</b> important for Computer Science, and we all have to  
+        think about it a <i>little</i>. Well, if 1500 words count as little, then this 
+        page is the result of me applying a little thought to the subject of 
+        ethics, and I have chosen the topic of Justice-based ethics because... 
+        um... Actually, I didn't really <i>choose</i> it. It was simply the one left over, 
+        which I picked, since I didn't really have any particular preference for 
+        any one ethical framework, nor do I care about them <i>particularly</i> much. So, 
+        here is the essay. In full, converted from the original <span class="emph">
+        Latex</span> to <span class="emph">html</span>. <b>Attempt</b> to enjoy. Don't force
+        yourself.
+        </td>
+        <td class="wide16.7">
+        <img src="good.png" alt="YOU DID GOOD" class="goodimg">
+        </td>
+      </tr>
+      
+      <!-- Games page -->
+      <tr><td><h2><a href="game.html">Game</a></h2></td><td></td></tr>
+      <tr>
+        <td>
+        <p>This little rhythm game would be my answer to <i>"What was your first web 
+        project?"</i>. Made in collaboration with three other people, this 
+        rhythm game was created over a two-week period of a <span 
+        class="emph">javascript/svg</span> course. While it was by no means my 
+        first programming project, nor the first game I have ever programmed, this 
+        game was my first time programming in a real-ish programming language, and the 
+        first time I've ever worked with <span class="emph">svg</span> graphics. 
+        For a little two-week project, I'd say it is not bad - it even loads its 
+        timing values from a <span class="emph">csv</span> file, which means I can 
+        swap out the song if I need or want to.</p>
+        </td>
+        <td><img src="snow.svg" alt="GREAT GAME" class="goodimg"></td>
+      </tr>
+      
+      <!-- Experiments page -->
+      <tr><td><h2><a href="oldindex.html">Experiments</a></h2></td><td></td></tr>
+      <tr>
+        <td>
+        <p>Did you know that this page is the first <span class="emph">HTML</span> 
+        project I've ever 
+        worked on? Now you know! Because I needed to find my way around this 
+        <span class="emph">HTML</span> stuff, I needed a starting point, a way to 
+        test the tools at my arsenal, to roughly gauge what I can do with it. And 
+        that was the result: a mass of unrelated content, strange animations, and 
+        self-referencing paragraphs. It was styled slightly differently from the 
+        rest of the pages, with larger margins on the left and right sides, 
+        but then I decided that smaller margins looked better, so now it has small 
+        margins again..</p>
+        </td>
+        <td><img src="errorsmall.png" alt="ERROR" class="goodimg"></td>
+      </tr>
+      </table> <!-- End of Attractions table-->
+    </div> <!-- End of main div-->
+      <!--#include file="./footer.html" --> 
+  </div>
+</body>
 </html>
