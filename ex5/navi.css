@@ -24,6 +24,9 @@
   font-size: 16px;
   text-decoration: none;
 } /* Item text */ 
+.nali a:link{
+    color:white;
+}
 .nali a:visited{
   color:white;
 } 
