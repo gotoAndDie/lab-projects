@@ -91,9 +91,12 @@ function processData(allText) {
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
 		case 32:
-                
-		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined){coverfade(120,cover);prog=0;setTimeout(function(){rhythmgame();},1000);} //The game shouldn't start before the parser is finished! 
-                preventDefault();
+		if (music.readyState=true && typeof right[208] != 'undefined' && prog === undefined)
+                   {
+                       coverfade(120,cover); prog = 0;
+                       setTimeout(function(){rhythmgame();}, 1000);
+                   } //The game shouldn't start before the parser is finished! 
+                event.preventDefault();
                 break;
 		case 68:
         if(prog != undefined && end != true){scoreeval(10);}
