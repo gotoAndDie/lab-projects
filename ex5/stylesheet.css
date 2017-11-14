@@ -95,6 +95,14 @@ a:link{
 
 
 iframe{
-  width: 750px;
-  height: 750px;
+  top: 130px;
+  left: 26%;
+  width: 47.5%;
+  height: 100%;
+  border: none;
+  position: absolute;
+}
+.gameframe{
+    width: 100%;
+    padding-top: 65%;
 }
