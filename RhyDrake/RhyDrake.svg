@@ -202,7 +202,7 @@ function senddown(posx, posy, intprog){
 	else {gonecount++;
 		if (posx[intprog] != 1990){score = score - 60; scoretxt.textContent = score;
 		miss++;
-		lnar[(posx[intprog]+10)/20-1].textContent = "Miss";Editing lab-projects_RhyDrake.svg at gh-pages · gotoAndDie_lab-projects
+		lnar[(posx[intprog]+10)/20-1].textContent = "Miss";
 		lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
         posx[intprog]=undefined;
         posy[intprog]=undefined;
