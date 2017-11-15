@@ -200,13 +200,13 @@ function senddown(posx, posy, intprog){
 	elemarray[intprog].setAttribute("transform", "translate("+posx[intprog]+" "+posy[intprog]+") scale(0.03)" );
 	if (posy[intprog] < 100){setTimeout(function(){senddown(posx, posy, intprog);}, 16.6666666666666667)} 
 	else {gonecount++;
-		if (posx[intprog] != 1990){score = score - 60; scoretxt.textContent = score;
-		miss++;
-		lnar[(posx[intprog]+10)/20-1].textContent = "Miss";
-		lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
+	if (posx[intprog] != 1990){score = score - 60; scoretxt.textContent = score;
+	miss++;
+	lnar[(posx[intprog]+10)/20-1].textContent = "Miss";
+	lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
         posx[intprog]=50;
         posy[intprog]=50;
-        elemarray[intprog]=undefined;
+        elemarray[intprog].remove(); //=undefined;
         
 		}
 	}
