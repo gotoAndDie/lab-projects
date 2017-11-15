@@ -225,7 +225,7 @@ function scoreeval(loc){
 	for (i=gonecount; i<posysy; i++){
 		if (posx[i]==loc && prox > Math.abs(85-posy[i])){
 			prox = Math.abs(75-posy[i]);
-			if (prox<15){flashfade((posx[i]+10)/20-1,0);posx[i]=1990}
+			if (prox<15){flashfade((posx[i]+10)/20-1,0); posx[i]=1990; elemarray[i].remove;}
 		}
 	}
 	prox = Math.floor(prox/2)
@@ -293,8 +293,8 @@ function ending(){
 	fadeblack(0);
 	setTimeout(function(){endingtext()},2500);
 }
-function fadeblack(opac){
-	opac++
+function fadeblack(opac){8
+	opac++;
 	endshadow.setAttribute("fill-opacity", opac/300);
 	if (opac<220) {setTimeout(function(){fadeblack(opac)},16.6666667)}
 }
