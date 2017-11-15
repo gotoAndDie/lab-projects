@@ -204,8 +204,8 @@ function senddown(posx, posy, intprog){
 		miss++;
 		lnar[(posx[intprog]+10)/20-1].textContent = "Miss";
 		lnar[(posx[intprog]+10)/20-1].setAttribute("fill", "#ef9a9a");
-        posx[intprog]=undefined;
-        posy[intprog]=undefined;
+        posx[intprog]=50;
+        posy[intprog]=50;
         elemarray[intprog]=undefined;
         
 		}
