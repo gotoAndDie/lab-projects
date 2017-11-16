@@ -19,9 +19,32 @@ h1{
 .maintitle{
   font-size: 75px;
 } /* Pagetop titles */
+/* Shrink the titles so they fit on small screens*/
+@media (max-width:600px) {
+    .maintitle, h1{
+        font-size: 40px;
+    }
+}
+@media (max-width:400px) {
+    .maintitle{
+        font-size: 20vw;
+    }
+}
+@media (max-width:320px) {
+    h1{
+        font-size: 12vw;
+    }
+}
+
 h2, h3, h4, th{
   font-family:"Lucida Bright", Georgia, serif;
+  text-align: left;
 } /* Subheading fonts */
+@media (max-width:600px) {
+    h2, h3, h4, th{
+        text-align:center;
+    }
+} /* Center subheadings on small screens */
 
 table{
   border-spacing: 0px;
@@ -40,6 +63,11 @@ p, td{
 .ctbh, .ctb{
   padding: 15px
 } /* Used in the course rating table*/
+@media (max-width:600px) {
+    .ctbh, .ctb{
+        padding: 5px;
+    }
+} /* Shrinks the course rating table on small screens */
 
 a:visited{
   color:black;
@@ -76,33 +104,48 @@ a:link{
   width: 16.67%;
 }
 
+.white:link{
+  color: white;
+} /* override color settings for links for the implementations link at the bottom*/
+.white:visited{
+  color: white;
+}
+
 .meimg{
   box-shadow: 0px 0px 5px;
   max-width: 60%;
   display: block;
   margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-height: 50%;
 } /* Styles for the image of me */
 .goodimg{
-  width: 100px;
+  max-width: 100px;
   display: block;
   margin: auto;
 } /* Style for attraction icons*/
+
 .errorimg{
-  width: 750px;
+  width: 100%;
   display: block;
   margin: auto;
 } /* Style for the image in the experiments */
 
-
+/* Style for responsive iframe */
 iframe{
-  top: 130px;
-  left: 26%;
-  width: 47.5%;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 70%;
   height: 100%;
   border: none;
-  position: absolute;
+  padding-left: 15%;
 }
 .gameframe{
-    width: 100%;
-    padding-top: 65%;
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+  position: relative;
+  padding-bottom: 70%;
 }

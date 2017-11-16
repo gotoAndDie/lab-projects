@@ -11,11 +11,12 @@
 </head>
 <body>
   <!-- Navigation -->
-  <ul class="navigation"> <!--Navigation bar-->
+  <!-- Implementation modified from w3schools implementation -->
+  <ul class="navigation">
     <li class="nali active"><a href="index.html">Home</a></li>
     <li class="nali"><a href="ethics.html">Ethics</a></li>
     <li class="nali"><a href="game.html">Game</a></li>
-    <li class="nali"><a href="oldindex.html">Experiments</a></li>
+    <li class="nali nalie"><a href="oldindex.html">Experiments</a></li>
     <li class="nali nari"><a href="implementations.html">Implementations</a></li>
   </ul>
   
@@ -25,11 +26,14 @@
     <br>
     <div class="homebody">
       <!-- Introduction -->
-      <table><tr>
-        <td class="wide50">
-          <h3 class="center">The figure to the right is me.</h3>
+      <div class="overflow">
+        <div class="pictureofme">
+          <img src="me.png" class="meimg" alt="">
+        </div>
+        <div class="mainparagraph">
+          <h3 class="center">The guy over there is me.</h3>
           <p>Yes, yes it is. It may look a little dark and 
-          hard to see, but that figure to the right of this paragraph of text 
+          hard to see, but that figure by this paragraph of text 
           is indeed <i>me</i>. Where was I when this picture was taken? The thing is, I 
           don't remember. It's anyone's guess, but I refuse to guess myself, 
           because honestly, <i>I</i> of all people should know for sure where I was when 
@@ -44,21 +48,22 @@
           will find a couple of things, which might be of interest to you, 
           though most likely they'll be boring. They're mostly content dug 
           out from other things I've done, after all.</p>
-        </td>
-        <td class="wide50">
-          <img src="me.png" class="meimg">
-        </td>
-      </tr></table>
+        </div>
+      </div>
       <br>
       <hr class="divider">
       
       <!-- Attractions Table -->
       <h1>Attractions</h1>
-      <table>
       <!-- Ethics Page -->
-      <tr><td><h2><a href="ethics.html">Ethics</a></h2></td><td></td></tr>
-      <tr>
-        <td class="wide83.3">
+      <div class="overflow">
+        <div class="attracthead">
+          <h2><a href="ethics.html">Ethics</a></h2>
+        </div>
+        <div class="attractimg">
+          <img src="good.png" alt="YOU DID GOOD" class="goodimg">
+        </div>
+        <div class="attract">
         <p>First, a little background: So, it turned out that 
         ethics was, like, <b>really</b> important for Computer Science, and we all have to  
         think about it a <i>little</i>. Well, if 1500 words count as little, then this 
@@ -70,16 +75,18 @@
         here is the essay. In full, converted from the original <span class="emph">
         Latex</span> to <span class="emph">html</span>. <b>Attempt</b> to enjoy. Don't force
         yourself.
-        </td>
-        <td class="wide16.7">
-        <img src="good.png" alt="YOU DID GOOD" class="goodimg">
-        </td>
-      </tr>
-      
+        </div>
+      </div>
+        
       <!-- Games page -->
-      <tr><td><h2><a href="game.html">Game</a></h2></td><td></td></tr>
-      <tr>
-        <td>
+      <div class="overflow">
+        <div class="attracthead">
+          <h2><a href="game.html">Game</a></h2>
+        </div>
+        <div class="attractimg">
+          <img src="snow.svg" alt="GREAT GAME" class="goodimg">
+        </div> 
+        <div class="attract">
         <p>This little rhythm game would be my answer to <i>"What was your first web 
         project?"</i>. Made in collaboration with three other people, this 
         rhythm game was created over a two-week period of a <span 
@@ -90,14 +97,18 @@
         For a little two-week project, I'd say it is not bad - it even loads its 
         timing values from a <span class="emph">csv</span> file, which means I can 
         swap out the song if I need or want to.</p>
-        </td>
-        <td><img src="snow.svg" alt="GREAT GAME" class="goodimg"></td>
-      </tr>
+        </div>
+      </div>
       
       <!-- Experiments page -->
-      <tr><td><h2><a href="oldindex.html">Experiments</a></h2></td><td></td></tr>
-      <tr>
-        <td>
+      <div class="overflow">
+        <div class="attracthead">
+          <h2><a href="oldindex.html">Experiments</a></h2>
+        </div>
+        <div class="attractimg">
+        <img src="errorsmall.png" alt="ERROR" class="goodimg">
+        </div>
+        <div class="attract">
         <p>Did you know that this page is the first <span class="emph">HTML</span> 
         project I've ever 
         worked on? Now you know! Because I needed to find my way around this 
@@ -107,11 +118,9 @@
         self-referencing paragraphs. It was styled slightly differently from the 
         rest of the pages, with larger margins on the left and right sides, 
         but then I decided that smaller margins looked better, so now it has small 
-        margins again..</p>
-        </td>
-        <td><img src="errorsmall.png" alt="ERROR" class="goodimg"></td>
-      </tr>
-      </table> <!-- End of Attractions table-->
+        margins again.</p>
+        </div>
+      </div><!-- End of Attractions table-->
     </div> <!-- End of main div-->
       <!--#include file="./footer.html" --> 
   </div>
